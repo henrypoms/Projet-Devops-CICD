@@ -1,5 +1,5 @@
 FROM python:3.6-alpine
-LABEL maintainer="ULRICH MONJI"
+LABEL maintainer="Henry POMS"
 WORKDIR /opt
 RUN  pip install flask
 ADD . /opt/
