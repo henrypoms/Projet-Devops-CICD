@@ -1,0 +1,7 @@
+piVersion: v1
+kind: Namespace
+metadata:
+  name: "ic-webapp"
+  labels:
+    env: prod  
+
