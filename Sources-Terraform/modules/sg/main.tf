@@ -1,5 +1,5 @@
-resource "aws_security_group" "henrypoms_sg" {
-  name        = "${var.sg_name}-sg"
+resource "aws_security_group" "my_sg" {
+  name        = "${var.maintainer}-sg"
   description = "Allow http, https  and ssh inbound traffic"
 
   ingress {
@@ -67,6 +67,6 @@ resource "aws_security_group" "henrypoms_sg" {
   }
 
   tags = {
-    Name = "${var.sg_name}-sg"
+    Name = "${var.maintainer}-sg"
   }
 }
