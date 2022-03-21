@@ -109,7 +109,7 @@ pipeline {
                   echo "Generating aws private key"
                   cp $PRIVATE_AWS_KEY devops-henry.pem
                   chmod 400 devops-henry.pem
-                  cd ".Sources-Terraform/app"
+                  cd "./Sources-Terraform/app"
                   terraform init 
                   #terraform destroy --auto-approve
                   terraform plan
