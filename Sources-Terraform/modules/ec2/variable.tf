@@ -3,10 +3,12 @@ variable "maintainer" {
   default = "ulrich"
 }
 
-variable "vpc_id" {
-  data "aws_vpc" "selected" 
+variable "vpc_id" {}
+
+ data "aws_vpc" "selected" {
   id = var.vpc_id
 }
+
 
 variable "instance_type" {
   type    = string
