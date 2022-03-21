@@ -1,5 +1,5 @@
 variable "sg_name" {
   type    = string
-  default = "henrypoms"
+  default = "ulrich"
 }
 
