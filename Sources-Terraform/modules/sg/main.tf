@@ -1,4 +1,4 @@
-resource "aws_security_group" "my_sg" {
+ressource "aws_security_group" "my_sg" {
   name        = "${var.maintainer}-sg"
   description = "Allow http, https  and ssh inbound traffic"
 
