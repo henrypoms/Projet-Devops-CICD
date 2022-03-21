@@ -137,7 +137,7 @@ pipeline {
             }
 
             stage ("Deploy in PRODUCTION") {
-                when { expression { GIT_BRANCH == 'origin/main'} }                
+                when { expression { GIT_BRANCH == 'origin/mster'} }                
                 stages {
                     stage ("PRODUCTION - Install Docker on all hosts") {
                         steps {
