@@ -1,4 +1,4 @@
-variable "sg_name" {
+variable "maintainer" {
   type    = string
   default = "ulrich"
 }
