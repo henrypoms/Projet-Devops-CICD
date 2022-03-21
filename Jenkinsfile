@@ -15,7 +15,7 @@ pipeline {
            agent any
            steps {
               script {
-                sh 'docker build --no-cache -f ./sources/app/${DOCKERFILE_NAME} -t ${DOCKERHUB_ID}/$IMAGE_NAME:$IMAGE_TAG ./sources/app'
+                sh 'docker build --no-cache -f ./Sources-APP/${DOCKERFILE_NAME} -t ${DOCKERHUB_ID}/$IMAGE_NAME:$IMAGE_TAG ./Sources-APP'
 
               }
            }
@@ -117,7 +117,7 @@ pipeline {
                         sh '''
                             apt update -y
                             apt install sshpass -y 
-                            export ANSIBLE_CONFIG=$(pwd)/sources/ansible-ressources/ansible.cfg
+                            export ANSIBLE_CONFIG=$(pwd)/Sources-Ansible/ansible.cfg
                             ansible all -m ping --private-key id_rsa  -l prod
                         '''
                     }
@@ -128,8 +128,8 @@ pipeline {
                 steps {
                     script {
                         sh '''
-                            export ANSIBLE_CONFIG=$(pwd)/sources/ansible-ressources/ansible.cfg
-                            ansible-lint -x 306 sources/ansible-ressources/playbooks/* || echo passing linter
+                            export ANSIBLE_CONFIG=$(pwd)/Sources-Ansible/ansible.cfg
+                            ansible-lint -x 306 Sources-Ansible/playbooks/* || echo passing linter
                             echo ${GIT_BRANCH}                                         
                         '''
                     }
@@ -143,8 +143,8 @@ pipeline {
                         steps {
                             script {
                                 sh '''
-                                    export ANSIBLE_CONFIG=$(pwd)/sources/ansible-ressources/ansible.cfg
-                                    ansible-playbook sources/ansible-ressources/playbooks/install-docker.yml --vault-password-file vault.key --private-key id_rsa -l odoo_server,pg_admin_server
+                                    export ANSIBLE_CONFIG=$(pwd)/Sources-Ansible/ansible.cfg
+                                    ansible-playbook Sources-Ansible/playbooks/install-docker.yml --vault-password-file vault.key --private-key id_rsa -l odoo_server,pg_admin_server
                                 '''
 
                                 
@@ -157,8 +157,8 @@ pipeline {
                         steps {
                             script {
                                 sh '''
-                                    export ANSIBLE_CONFIG=$(pwd)/sources/ansible-ressources/ansible.cfg
-                                    ansible-playbook sources/ansible-ressources/playbooks/deploy-pgadmin.yml --vault-password-file vault.key --private-key id_rsa -l pg_admin
+                                    export ANSIBLE_CONFIG=$(pwd)/Sources-Ansible/ansible.cfg
+                                    ansible-playbook Sources-Ansible/playbooks/deploy-pgadmin.yml --vault-password-file vault.key --private-key id_rsa -l pg_admin
                                 '''
                             }
                         }
@@ -167,8 +167,8 @@ pipeline {
                         steps {
                             script {
                                 sh '''
-                                    export ANSIBLE_CONFIG=$(pwd)/sources/ansible-ressources/ansible.cfg
-                                    ansible-playbook sources/ansible-ressources/playbooks/deploy-odoo.yml --vault-password-file vault.key --private-key id_rsa -l odoo
+                                    export ANSIBLE_CONFIG=$(pwd)/Sources-Ansible/ansible.cfg
+                                    ansible-playbook Sources-Ansible/playbooks/deploy-odoo.yml --vault-password-file vault.key --private-key id_rsa -l odoo
                                 '''
                             }
                         }
@@ -178,8 +178,8 @@ pipeline {
                         steps {
                             script {
                                 sh '''
-                                    export ANSIBLE_CONFIG=$(pwd)/sources/ansible-ressources/ansible.cfg
-                                    ansible-playbook sources/ansible-ressources/playbooks/deploy-ic-webapp.yml --vault-password-file vault.key --private-key id_rsa -l ic_webapp
+                                    export ANSIBLE_CONFIG=$(pwd)/Sources-Ansible/ansible.cfg
+                                    ansible-playbook Sources-Ansible/playbooks/deploy-ic-webapp.yml --vault-password-file vault.key --private-key id_rsa -l ic_webapp
                                 '''
                             }
                         }
