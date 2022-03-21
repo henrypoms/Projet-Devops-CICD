@@ -1,6 +1,7 @@
 resource "aws_security_group" "my_sg" {
   name        = "${var.maintainer}-sg"
   description = "Allow http, https  and ssh inbound traffic"
+  vpc_id      = "vpc-09d6da5e18e139a5d"
 
   ingress {
     description      = "HTTP from all"
