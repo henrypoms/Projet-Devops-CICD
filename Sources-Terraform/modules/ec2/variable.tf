@@ -10,7 +10,7 @@ variable "instance_type" {
 
 variable "ssh_key" {
   type    = string
-  default = "devops"
+  default = "devops-henry"
 }
 
 variable "sg_name" {
