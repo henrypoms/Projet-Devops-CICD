@@ -4,8 +4,8 @@ variable "maintainer" {
 }
 
 variable "vpc_id" {
-  type = string 
-  id = "vpc-09d6da5e18e139a5d"
+  data "aws_vpc" "selected" 
+  id = var.vpc_id
 }
 
 variable "instance_type" {
