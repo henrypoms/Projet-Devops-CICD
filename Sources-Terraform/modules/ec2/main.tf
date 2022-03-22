@@ -1,6 +1,6 @@
 resource "aws_instance" "ic-webapp-ec2" {
   ami               = "ami-033b95fb8079dc481"
-  vpc_id            = data.aws_vpc.selected.id
+  vpc_id            = vpc-09d6da5e18e139a5d
   instance_type     = var.instance_type
   key_name          = var.ssh_key
   availability_zone = var.AZ
