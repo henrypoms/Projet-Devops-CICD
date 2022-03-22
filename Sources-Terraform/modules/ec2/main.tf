@@ -4,6 +4,8 @@ resource "aws_instance" "ic-webapp-ec2" {
   key_name          = var.ssh_key
   availability_zone = var.AZ
   security_groups   = ["${var.sg_name}"]
+  vpc_security_group_ids = ["vpc-09d6da5e18e139a5d"]
+  subnet_id              = "subnet-047a3f4fc727202da"
   tags = {
     Name = "${var.maintainer}-ec2"
   }
