@@ -6,7 +6,7 @@ resource "aws_instance" "ic-webapp-ec2" {
   security_groups   = ["${var.sg_name}"]
   subnet_id         = "subnet-047a3f4fc727202da"
   VpcId             = "vpc-09d6da5e18e139a5d"
-  GroupId           = ["sg-014762743ac0ae048"]
+  
   tags = {
     Name = "${var.maintainer}-ec2"
   }
