@@ -5,7 +5,7 @@ resource "aws_instance" "ic-webapp-ec2" {
   availability_zone = var.AZ
   security_groups   = ["${var.sg_name}"]
   subnet_id         = "subnet-047a3f4fc727202da"
-  vpc_id            = "vpc-09d6da5e18e139a5d"
+  
   
   tags = {
     Name = "${var.maintainer}-ec2"
