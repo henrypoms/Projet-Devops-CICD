@@ -3,12 +3,11 @@ resource "aws_instance" "ic-webapp-ec2" {
   instance_type     = var.instance_type
   key_name          = var.ssh_key
   availability_zone = var.AZ
-  subnet_id         = var.subnet-047a3f4fc727202da
   security_groups   = ["${var.sg_name}"]
   tags = {
     Name = "${var.maintainer}-ec2"
   }
-
+  
   root_block_device {
     delete_on_termination = true
   }
