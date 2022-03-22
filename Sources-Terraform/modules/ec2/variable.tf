@@ -42,7 +42,7 @@ variable "projet_name" {
 
 variable "AZ" {
   type    = string
-  default = "us-east-1a"
+  default = "us-east-1b"
 }
 
 variable "user" {
