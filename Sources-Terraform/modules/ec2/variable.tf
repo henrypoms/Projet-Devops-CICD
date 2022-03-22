@@ -8,6 +8,13 @@ variable "instance_type" {
   default = "t2.nano"
 }
 
+
+variable "vpc_id" {
+  description = "The ID of VPC in which to create ec2 instance."
+  default     = "sg-014762743ac0ae048"
+
+}
+
 variable "ssh_key" {
   type    = string
   default = "devops-henry"
@@ -35,7 +42,7 @@ variable "projet_name" {
 
 variable "AZ" {
   type    = string
-  default = "us-east-1b"
+  default = "us-east-1a"
 }
 
 variable "user" {
