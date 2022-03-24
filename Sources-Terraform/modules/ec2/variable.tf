@@ -5,7 +5,7 @@ variable "maintainer" {
 
 variable "instance_type" {
   type    = string
-  default = "t2.nano"
+  default = "t22.nano"
 }
 
 
